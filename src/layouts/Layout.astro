@@ -1,6 +1,7 @@
 ---
 import { basics } from "@cv";
-import Vengeance from "@/layouts/Vengeance.astro";
+import notnullda from "@/layouts/notnullda.astro";
+import Notnullda from "@/layouts/notnullda.astro";
 
 interface Props {
 	title: string;
@@ -37,7 +38,7 @@ const { image, summary, url, theme } = basics;
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Itim" />
 
 		<link rel="stylesheet" href="/themes/themes.css" />
-		<Vengeance />
+		<Notnullda />
 	</head>
 	<body data-theme={theme} class="relative bg-skin-fill">
 		<div class="absolute top-0 -z-10 h-full w-full print:hidden">

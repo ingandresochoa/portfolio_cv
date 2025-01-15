@@ -17,6 +17,20 @@ import Swift from "@/icons/swift.astro"
 import SwiftUI from "@/icons/swiftui.astro"
 import Kotlin from "@/icons/kotlin.astro"
 import Flutter from "@/icons/flutter.astro"
+import Python from "@/icons/python.astro"
+import Django from "@/icons/django.astro"
+import Flask from "@/icons/flask.astro"
+import FastAPI from "@/icons/fastapi.astro"
+import SQL from "@/icons/sql.astro"
+import Sqlserver from "@/icons/sqlserver.astro";
+import Jquery from "@/icons/jquery.astro";
+import Php from "@/icons/php.astro";
+import SQLite from "@/icons/sqlite.astro";
+import dotNetCore from "@/icons/dotnetcore.astro";
+import Csharp from "@/icons/Csharp.astro";
+import Angular from "@/icons/angular.astro";
+import Devops from "@/icons/devops.astro";
+import Excel from "@/icons/excel.astro";
 
 const SKILLS_ICONS: Record<string, any> = {
   HTML,
@@ -34,11 +48,25 @@ const SKILLS_ICONS: Record<string, any> = {
   SwiftUI,
   Kotlin,
   Flutter,
+  Python,
+  Django,
+  Flask,
+  FastAPI,
+  SQL,
+  Sqlserver,
+  Jquery,
+  Php,
+  SQLite,
+  dotNetCore,
+  Csharp,
+  Angular,
+  Devops,
+  Excel
 }
 ---
-<Section className={Astro.props.className} title="Experience">
+<Section className={Astro.props.className} title="Experiencia laboral">
   <ul class="flex flex-col">
-    {work.map(({ name, startDate, endDate, position, summary, responsibilities, achievements, url, skills, location, location_type }) => {
+    {work.map(({ name, startDate, endDate, position,  achievements, url, skills, location, location_type }) => {
       const startYear = new Date(startDate).getFullYear()
       const endYear = endDate != null ? new Date(endDate).getFullYear() : "Present"
 
@@ -74,37 +102,13 @@ const SKILLS_ICONS: Record<string, any> = {
                 </div>
               )}
               <div class="mt-4  print:gap-0 flex flex-col gap-4 print:text-xs text-sm" x-data="{ expanded: false }">
-                {summary && (
-                  <div class="flex flex-col gap-1">
-                    <h4>Summary:</h4>
-                    <ul class="text-skin-muted [&>li]:ml-4 flex list-disc flex-col gap-2">
-                      {Array.isArray(summary) ? (
-                        summary.map(item => (
-                          {item}
-                        ))
-                      ) : (
-                        <li>{summary}</li>
-                      )}
-                    </ul>
-                  </div>
-                )}
 
-                {(responsibilities || achievements) &&  (
+                {(achievements) &&  (
                 <div class="md:after:from-skin-hue dark:md:after:to-skin-hue/0  flex relative flex-col max-sm:!h-auto print:!h-auto gap-4 print:gap-2 md:after:bg-gradient-to-t md:after:absolute md:after:bottom-0 md:after:w-full print:after:hidden md:after:h-12 md:after:content-[''] " :class="expanded ? 'after:hidden' : ''" x-show="expanded" x-collapse.min.50px>
-                {responsibilities && (
-                  <div class="flex flex-col gap-1">
-                    <h4>Responsibilities:</h4>
-                    <ul class="text-skin-muted [&>li]:ml-4 flex list-disc flex-col gap-2">
-                      {responsibilities.map(responsibility => (
-                        <li>{responsibility}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
 
                 {achievements && (
                   <div class="flex flex-col gap-1">
-                    <h4>Achievements:</h4>
+                    <h4>Logros:</h4>
                     <ul class="text-skin-muted [&>li]:ml-4 flex list-disc flex-col gap-2">
                       {achievements.map(achievement => (
                         <li>{achievement}</li>
@@ -122,7 +126,13 @@ const SKILLS_ICONS: Record<string, any> = {
 
                 <ul class="flex print:hidden flex-wrap gap-2" aria-label="Technologies used">
                   {skills && skills.map(skill => {
-                    const iconName = skill === "Next.js" ? "Next" : skill
+                    let iconName; 
+                    if (skill === "Next.js") iconName = "Next";
+                    else if (skill === ".NET Core") iconName = "dotNetCore";
+                    else if (skill === "C#") iconName = "Csharp";
+                    else if (skill === "Azure DevOps") iconName = "Devops";
+                    else iconName = skill;
+
                     const Icon = SKILLS_ICONS[iconName]
                     return (
                       <li class="bg-skin-button-accent/20 border-skin-hue/20 text-skin-hue print:p-0 print:bg-transparent print:text-zinc-800 flex gap-1 items-center border-solid print:border-none border rounded-md px-2 py-0.5 text-xs">

@@ -14,6 +14,7 @@ export default {
     extend: {
       textColor: {
         skin: {
+          hue: withOpacity("--color"),
           base: withOpacity("--color-text-base"),
           muted: withOpacity("--color-text-muted"),
           inverted: withOpacity("--color-text-inverted"),

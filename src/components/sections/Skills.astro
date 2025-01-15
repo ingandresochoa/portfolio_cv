@@ -18,6 +18,18 @@ import Kotlin from "@/icons/kotlin.astro";
 import Flutter from "@/icons/flutter.astro";
 import Figma from "@/icons/Figma.astro";
 import Gitlab from "@/icons/Gitlab.astro";
+import Python from "@/icons/python.astro";
+import Django from "@/icons/django.astro";
+import Flask from "@/icons/flask.astro";
+import FastAPI from "@/icons/fastapi.astro";
+import Sqlserver from "@/icons/sqlserver.astro";
+import Jquery from "@/icons/jquery.astro";
+import Php from "@/icons/php.astro";
+import SQLite from "@/icons/sqlite.astro";
+import dotNetCore from "@/icons/dotnetcore.astro";
+import Csharp from "@/icons/Csharp.astro";
+import Angular from "@/icons/angular.astro";
+import Devops from "@/icons/devops.astro";
 
 const SKILLS_ICONS: Record<string, any> = {
 	HTML,
@@ -34,17 +46,33 @@ const SKILLS_ICONS: Record<string, any> = {
 	Swift,
 	SwiftUI,
 	Kotlin,
-	Flutter,
 	Figma,
 	Gitlab,
+	Python,
+	Django,
+	Flask,
+	FastAPI,
+	Sqlserver,
+	Jquery,
+	Php,
+	SQLite,
+	dotNetCore,
+	Csharp,
+	Angular,
+	Devops
 };
 ---
 
-<Section className={Astro.props.className} title="Skills">
+<Section className={Astro.props.className} title="Habilidades">
 	<ul class="[&>li>svg]:text-skin-hue inline-flex flex-wrap gap-6 [&>li>svg]:size-5 [&>li]:text-sm">
 		{
 			skills.map(({ name }) => {
-				const iconName = name === "Next.js" ? "Next" : name;
+				let iconName; 
+				if (name === "Next.js") iconName = "Next";
+				else if (name === ".NETCore") iconName = "dotNetCore";
+				else if (name === "C#") iconName = "Csharp";
+				else if (name === "Azure DevOps") iconName = "Devops";
+				else iconName = name;
 				const Icon = SKILLS_ICONS[iconName];
 
 				return (
